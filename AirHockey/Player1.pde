@@ -1,5 +1,6 @@
 class Player1
 {
+  int score=0;
   float X_Pos,Y_Pos;
   public float radius=150;
   int xDir = 5, yDir = 5;
@@ -54,5 +55,9 @@ class Player1
   public float get_Y_Pos()
   {
     return this.Y_Pos;
+  }
+  public void getScore()
+  {
+    this.score+=1;
   }
 }

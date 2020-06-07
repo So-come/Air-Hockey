@@ -43,6 +43,7 @@ void draw() {
     b.draw_Block();
     b.bounceBall();
     crash_Block_and_Rocket(b,r);
+    rocketOut(r);
   }
 }
 
@@ -188,15 +189,39 @@ void crash_Block_and_Rocket(Block r, Rocket p2)
     r.xDir=r.xDir*(-1);
   }
 }
+//when the rocket is out the gamefield, Recreate it and give score to player 
+void rocketOut(Rocket r)
+{
+  if(r.get_X_Pos()<5||r.get_X_Pos()>width-5||r.get_Y_Pos()<5||r.get_Y_Pos()>height-5)
+  {
+    if(r.get_X_Pos()<5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
+    {
+      p2.getScore();
+    }
+    else if(r.get_X_Pos()>width-5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
+    {
+      p1.getScore();
+    }
+    r.create();
+  }
+}
+void getItemP1(Block r)
+{
+  if(r.get_X_Pos()<5||r.get_X_Pos()>width-5||r.get_Y_Pos()<5||r.get_Y_Pos()>height-5)
+  {
+    if(r.get_X_Pos()<5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
+    {
+      p2.getScore();
+    }
+    else if(r.get_X_Pos()>width-5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
+    {
+      p1.getScore();
+    }
+    r.create_Block();
+  }
+}
 void mousePressed()
 {
   start=1;
   
-}
-void getScoreP1(Rocket r)
-{
-  r.get
-}
-void getItemP1(Block b)
-{
 }

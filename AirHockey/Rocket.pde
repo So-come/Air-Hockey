@@ -6,8 +6,7 @@ class Rocket
   boolean flag = false;
   public Rocket()
   {
-    X_Pos=width/2;
-    Y_Pos=height-400;
+    create();
   }
   public void Draw_Rocket()
   {
@@ -47,5 +46,10 @@ class Rocket
   public int get_X_Direction()
   {
     return this.xDir;
+  }
+  public void create()
+  {
+    X_Pos=width/2;
+    Y_Pos=height/2;
   }
 }
