@@ -1,6 +1,5 @@
-class Block // 골대 생성 아이템
+class Block
 {
-  int w;
   float X_Pos;
   float Y_Pos;
   int radius=50;
