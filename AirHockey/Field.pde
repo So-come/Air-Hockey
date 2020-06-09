@@ -30,12 +30,6 @@ class Field
     noStroke();
     circle(5,rect_Y/2,goal_radius);
     circle(rect_X,rect_Y/2,goal_radius);   
-    //draw score board //should upgrade this line
-    stroke(0);
-    rect(600,0,400,100);
-    strokeWeight(5);
-    stroke(000000);
-    line(800,0,800,100);
   }
   public float get_GR()
   {
