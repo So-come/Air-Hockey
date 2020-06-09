@@ -6,6 +6,8 @@ Initial_Screen is;
 Block b;
 int start=0;
 
+int red_score, green_score = 0;
+
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
 
 void setup() {
@@ -21,7 +23,6 @@ void setup() {
 
 void draw() {
   
-  
   if(start==0)
     is.draw_Screen();
   else {
@@ -32,6 +33,17 @@ void draw() {
     crash_Block_and_P1(b, p1);
     crash_Block_and_P2(b, p2);
     f.Draw_Field();
+   
+    //red score
+    fill (240);
+    textSize (700);
+    text (red_score, 150, 650);
+    
+    //blue score
+    fill (240);
+    textSize (700);
+    text (green_score, 1000, 650);
+    
     p1.Draw_Player();
     p1.Player1_limitation();
     p2.Draw_Player();
