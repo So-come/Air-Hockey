@@ -53,8 +53,12 @@ class Player2
   {
     return this.Y_Pos;
   }
-  public void getScore()
+  public void upScore()
   {
     this.score+=1;
+  }
+  public int getScore()
+  {
+    return this.score;
   }
 }

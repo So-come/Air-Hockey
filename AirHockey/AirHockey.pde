@@ -6,8 +6,6 @@ Initial_Screen is;
 Block b;
 int start=0;
 
-int red_score, green_score = 0;
-
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
 
 void setup() {
@@ -37,12 +35,12 @@ void draw() {
     //red score
     fill (240);
     textSize (700);
-    text (red_score, 150, 650);
+    text (p1.getScore(), 150, 650);
     
     //blue score
     fill (240);
     textSize (700);
-    text (green_score, 1000, 650);
+    text (p2.getScore(), 1000, 650);
     
     p1.Draw_Player();
     p1.Player1_limitation();
@@ -208,11 +206,11 @@ void rocketOut(Rocket r)
   {
     if(r.get_X_Pos()<5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
     {
-      p2.getScore();
+      p2.upScore();
     }
     else if(r.get_X_Pos()>width-5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
     {
-      p1.getScore();
+      p1.upScore();
     }
     r.create();
   }
@@ -223,11 +221,9 @@ void getItemP1(Block r)
   {
     if(r.get_X_Pos()<5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
     {
-      p2.getScore();
     }
     else if(r.get_X_Pos()>width-5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
     {
-      p1.getScore();
     }
     r.create_Block();
   }
