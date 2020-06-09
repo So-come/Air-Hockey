@@ -37,8 +37,10 @@ class Player2
     }
   }
   void Player2_limitation(){
-    if(X_Pos<radius/2+7.5)X_Pos=radius/2+8.5;
-    if(Y_Pos<radius/2+7.5 || Y_Pos >height -radius/2+8.5);
+    if(X_Pos<radius/2+7.5 ) X_Pos=radius/2+8.5;
+    if(X_Pos>width-radius/2-7.5)X_Pos=width-radius/2-8.5;
+    if(Y_Pos<radius/2+7.5) Y_Pos=height-radius/2-8.5;
+    if(Y_Pos >height -radius/2-7.5) Y_Pos=radius/2+7.5;
   }
   //to calculate collision
   public float getRadius()
