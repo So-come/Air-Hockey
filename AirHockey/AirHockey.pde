@@ -3,7 +3,9 @@ Player1 p1;
 Player2 p2;
 Rocket r;
 Initial_Screen is;
-Block b;
+Block b1;
+Block b2;
+Block b3;
 int start=0;
 
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
@@ -16,7 +18,9 @@ void setup() {
   p1=new Player1(f.X_Area/5,f.Y_Area/2);
   p2=new Player2(f.X_Area/5*4,f.Y_Area/2);
   is=new Initial_Screen();
-  b=new Block();
+  b1=new Block();
+  b2=new Block();
+  b3=new Block();
 }
 
 void draw() {
@@ -28,8 +32,12 @@ void draw() {
     p2.move(left2, right2, up2, down2);
     crash_R_and_P1(r, p1);
     crash_R_and_P2(r, p2);
-    crash_Block_and_P1(b, p1);
-    crash_Block_and_P2(b, p2);
+    crash_Block_and_P1(b1, p1);
+    crash_Block_and_P2(b1, p2);
+    crash_Block_and_P1(b2, p1);
+    crash_Block_and_P2(b2, p2);
+    crash_Block_and_P1(b3, p1);
+    crash_Block_and_P2(b3, p2);
     f.Draw_Field();
    
     //red score
@@ -49,11 +57,22 @@ void draw() {
     r.Draw_Rocket();
     r.moveBall();
     r.bounceBall();
-    b.reduce_CT();
-    b.draw_Block();
-    b.bounceBall();
-    crash_Block_and_Rocket(b,r);
+    b1.reduce_CT();
+    b1.draw_Block();
+    b1.bounceBall();
+    crash_Block_and_Rocket(b1,r);
+    b2.reduce_CT();
+    b2.draw_Block();
+    b2.bounceBall();
+    crash_Block_and_Rocket(b2,r);
+    b3.reduce_CT();
+    b3.draw_Block();
+    b3.bounceBall();
+    crash_Block_and_Rocket(b3,r);
     rocketOut(r);
+    getItemP1(b1);
+    getItemP1(b2);
+    getItemP1(b3);
   }
 }
 

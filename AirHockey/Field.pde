@@ -2,7 +2,7 @@ class Field
 {
   public int X_Area,Y_Area,C_Area;
   int rect_X,rect_Y,rect_C;
-  float goal_radius=200;
+  float goal_radius=250;
   
   public Field(int Window_Width,int Window_Height)
   {
