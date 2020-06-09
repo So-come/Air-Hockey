@@ -210,7 +210,7 @@ void rocketOut(Rocket r)
     }
     else if(r.get_X_Pos()>width-5||(r.get_Y_Pos()<height/2+f.get_GR()&&r.get_Y_Pos()>height/2-f.get_GR()))
     {
-      p1.upScore();
+      p1.upScore();     
     }
     r.create();
   }
