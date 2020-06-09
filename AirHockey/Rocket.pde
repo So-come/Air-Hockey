@@ -3,7 +3,6 @@ class Rocket
   int X_Pos, Y_Pos;
   int radius=50;
   public int xDir = -5, yDir = -2;
-  boolean flag = false;
   public Rocket()
   {
     create();
@@ -22,8 +21,7 @@ class Rocket
   //when collision with Field bounce
   void bounceBall()
   {
-     if ((X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) && (Y_Pos > height/2 + 100 - radius/2 || Y_Pos < height/2 - (100 - radius/2)) && !flag) xDir *= -1;
-    else if (X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) flag = true;
+     if ((X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) && (Y_Pos > height/2 + 100 - radius/2 || Y_Pos < height/2 - (100 - radius/2))) xDir *= -1;
     if (Y_Pos < radius/2+7.5 || Y_Pos > height - radius/2-7.5) yDir *= -1;
   }
   //to calculate Collision
