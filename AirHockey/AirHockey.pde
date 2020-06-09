@@ -37,7 +37,7 @@ void draw() {
     textSize (700);
     text (p1.getScore(), 150, 650);
     
-    //blue score
+    //green score
     fill (240);
     textSize (700);
     text (p2.getScore(), 1000, 650);
