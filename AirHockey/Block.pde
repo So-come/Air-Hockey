@@ -4,7 +4,6 @@ class Block
   float Y_Pos;
   int radius=50;
   float coolTime;
-  boolean flag = false;
   public float xDir=5,yDir=2;
   public Block()
   {
@@ -59,8 +58,7 @@ class Block
   }
   void bounceBall()
   {
-     if ((X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) && (Y_Pos > height/2 + 100 - radius/2 || Y_Pos < height/2 - (100 - radius/2)) && !flag) xDir *= -1;
-    else if (X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) flag = true;
+     if ((X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) && (Y_Pos > height/2 + 100 - radius/2 || Y_Pos < height/2 - (100 - radius/2))) xDir *= -1;
     if (Y_Pos < radius/2+7.5 || Y_Pos > height - radius/2-7.5) yDir *= -1;
   }
 }
