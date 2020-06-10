@@ -58,18 +58,18 @@ void draw() {
     p2.Player2_limitation();
     r.Draw_Rocket();
     r.moveBall();
-    r.bounceBall();
+    R_bounceBall(r);
     b1.reduce_CT();
     b1.draw_Block();
-    b1.bounceBall();
+    B_bounceBall(b1);
     crash_Block_and_Rocket(b1,r);
     b2.reduce_CT();
     b2.draw_Block();
-    b2.bounceBall();
+    B_bounceBall(b2);
     crash_Block_and_Rocket(b2,r);
     b3.reduce_CT();
     b3.draw_Block();
-    b3.bounceBall();
+    B_bounceBall(b3);
     crash_Block_and_Rocket(b3,r);
     rocketOut(r);
     getItemP1(b1);
@@ -185,39 +185,39 @@ void crash_Block_and_P1(Block r, Player1 p1)
   }
 }
 
-void crash_Block_and_P2(Block r, Player2 p2)
+void crash_Block_and_P2(Block b, Player2 p2)
 {
-  if(((r.get_X_Pos()-r.getRadius()/2<p2.get_X_Pos()+p2.getRadius()/2)&&(r.get_X_Pos()+r.getRadius()/2>p2.get_X_Pos()-p2.getRadius()/2))
-  &&((r.get_Y_Pos()-r.getRadius()/2<p2.get_Y_Pos()+p2.getRadius()/2)&&(r.get_Y_Pos()+r.getRadius()/2>p2.get_Y_Pos()-p2.getRadius()/2))
+  if(((b.get_X_Pos()-b.getRadius()/2<p2.get_X_Pos()+p2.getRadius()/2)&&(b.get_X_Pos()+b.getRadius()/2>p2.get_X_Pos()-p2.getRadius()/2))
+  &&((b.get_Y_Pos()-b.getRadius()/2<p2.get_Y_Pos()+p2.getRadius()/2)&&(b.get_Y_Pos()+b.getRadius()/2>p2.get_Y_Pos()-p2.getRadius()/2))
   )
   {
-    if((r.get_Y_Pos()>p2.get_Y_Pos())&&(r.get_Y_Direction()>0)
-    ||(r.get_Y_Pos()<p2.get_Y_Pos()&&(r.get_Y_Direction()<0)))
+    if((b.get_Y_Pos()>p2.get_Y_Pos())&&(b.get_Y_Direction()>0)
+    ||(b.get_Y_Pos()<p2.get_Y_Pos()&&(b.get_Y_Direction()<0)))
     {
     }
     else
     {
-      r.yDir=r.yDir*(-1);
+      b.yDir=b.yDir*(-1);
     }
-    r.xDir=r.xDir*(-1);
+    b.xDir=b.xDir*(-1);
   }
 }
 //calculate crashing Rocket and Block
-void crash_Block_and_Rocket(Block r, Rocket p2)
+void crash_Block_and_Rocket(Block b, Rocket p2)
 {
-  if(((r.get_X_Pos()-r.getRadius()/2<p2.get_X_Pos()+p2.getRadius()/2)&&(r.get_X_Pos()+r.getRadius()/2>p2.get_X_Pos()-p2.getRadius()/2))
-  &&((r.get_Y_Pos()-r.getRadius()/2<p2.get_Y_Pos()+p2.getRadius()/2)&&(r.get_Y_Pos()+r.getRadius()/2>p2.get_Y_Pos()-p2.getRadius()/2))
+  if(((b.get_X_Pos()-b.getRadius()/2<p2.get_X_Pos()+p2.getRadius()/2)&&(b.get_X_Pos()+b.getRadius()/2>p2.get_X_Pos()-p2.getRadius()/2))
+  &&((b.get_Y_Pos()-b.getRadius()/2<p2.get_Y_Pos()+p2.getRadius()/2)&&(b.get_Y_Pos()+b.getRadius()/2>p2.get_Y_Pos()-p2.getRadius()/2))
   )
   {
-    if((r.get_Y_Pos()>p2.get_Y_Pos())&&(r.get_Y_Direction()>0)
-    ||(r.get_Y_Pos()<p2.get_Y_Pos()&&(r.get_Y_Direction()<0)))
+    if((b.get_Y_Pos()>p2.get_Y_Pos())&&(b.get_Y_Direction()>0)
+    ||(b.get_Y_Pos()<p2.get_Y_Pos()&&(b.get_Y_Direction()<0)))
     {
     }
     else
     {
-      r.yDir=r.yDir*(-1);
+      b.yDir=b.yDir*(-1);
     }
-    r.xDir=r.xDir*(-1);
+    b.xDir=b.xDir*(-1);
   }
 }
 //when the rocket is out the gamefield, Recreate it and give score to player 
@@ -248,6 +248,16 @@ void getItemP1(Block r)
     }
     r.create_Block();
   }
+}
+void R_bounceBall(Rocket r)
+{
+  if ((r.X_Pos < r.radius/2+7.5 || r.X_Pos > width - r.radius/2-7.5) && (r.Y_Pos > height/2 + f.get_GR()/2 - r.radius/2 || r.Y_Pos < height/2 - (f.get_GR()/2 - r.radius/2))) r.xDir *= -1;
+  else if (r.Y_Pos < r.radius/2+7.5 || r.Y_Pos > height - r.radius/2-7.5) r.yDir *= -1;
+}
+void B_bounceBall(Block b)
+{
+  if ((b.X_Pos < b.radius/2+7.5 || b.X_Pos > width - b.radius/2-7.5) && (b.Y_Pos > height/2 + f.get_GR()/2 - b.radius/2 || b.Y_Pos < height/2 - (f.get_GR()/2 - b.radius/2))) b.xDir *= -1;
+  else if (b.Y_Pos < b.radius/2+7.5 || r.Y_Pos > height - b.radius/2-7.5) b.yDir *= -1;
 }
 void mousePressed()
 {
