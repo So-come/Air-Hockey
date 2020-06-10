@@ -22,11 +22,13 @@ class Block
     {
       X_Pos+=xDir;
       Y_Pos+=yDir;
-      fill(255);
+      //fill(255);
       stroke(250,5,5);
-      circle(X_Pos,Y_Pos,radius);
-      textSize(radius/2);
-      text("?",X_Pos,Y_Pos);
+      //mute item circle, textbox
+      //circle(X_Pos,Y_Pos,radius);
+      //textSize(radius/2);
+      //text("?",X_Pos,Y_Pos);
+      image(img,X_Pos,Y_Pos,50,50);
     }
   }
   //to calculate Collision

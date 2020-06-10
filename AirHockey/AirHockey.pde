@@ -7,6 +7,7 @@ Block b1;
 Block b2;
 Block b3;
 int start=0;
+PImage img;
 
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
 
@@ -21,6 +22,7 @@ void setup() {
   b1=new Block();
   b2=new Block();
   b3=new Block();
+  img=loadImage("img.png");
 }
 
 void draw() {
