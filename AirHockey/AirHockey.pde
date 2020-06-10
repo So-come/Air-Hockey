@@ -251,13 +251,14 @@ void getItemP1(Block r)
 }
 void R_bounceBall(Rocket r)
 {
-  if ((r.X_Pos < r.radius/2+7.5 || r.X_Pos > width - r.radius/2-7.5) && (r.Y_Pos > height/2 + f.get_GR()/2 - r.radius/2 || r.Y_Pos < height/2 - (f.get_GR()/2 - r.radius/2))) r.xDir *= -1;
-  else if (r.Y_Pos < r.radius/2+7.5 || r.Y_Pos > height - r.radius/2-7.5) r.yDir *= -1;
+  if ((r.get_X_Pos() < r.getRadius()/2+7.5 || r.get_X_Pos() > width - r.getRadius()/2-7.5) && (r.get_Y_Pos() > height/2 + f.get_GR()/2 - r.getRadius()/2 || r.get_Y_Pos() < height/2 - (f.get_GR()/2 - r.getRadius()/2))) r.xDir *= -1;
+  else if (r.get_Y_Pos() < r.getRadius()/2+7.5 || r.get_Y_Pos() > height - r.getRadius()/2-7.5) r.yDir *= -1;
 }
 void B_bounceBall(Block b)
 {
-  if ((b.X_Pos < b.radius/2+7.5 || b.X_Pos > width - b.radius/2-7.5) && (b.Y_Pos > height/2 + f.get_GR()/2 - b.radius/2 || b.Y_Pos < height/2 - (f.get_GR()/2 - b.radius/2))) b.xDir *= -1;
-  else if (b.Y_Pos < b.radius/2+7.5 || r.Y_Pos > height - b.radius/2-7.5) b.yDir *= -1;
+  if ((b.get_X_Pos() < b.getRadius()/2+7.5 || b.get_X_Pos() > width - b.getRadius()/2-7.5) &&
+  (b.get_Y_Pos() > height/2 + f.get_GR()/2 - b.getRadius()/2 || b.get_Y_Pos() < height/2 - (f.get_GR()/2 - b.getRadius()/2))) b.xDir *= -1;
+  else if (b.get_Y_Pos() < b.getRadius()/2+7.5 || b.get_Y_Pos() > height - b.getRadius()/2-7.5) b.yDir *= -1;
 }
 void mousePressed()
 {

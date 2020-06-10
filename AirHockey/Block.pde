@@ -56,7 +56,7 @@ class Block
   {
     this.X_Pos=random(1600-radius/2-7.5)+radius/2+7.5;
     this.Y_Pos=random(800-radius/2-7.5)+radius/2+7.5;
-    this.coolTime=random(50)+10;
+    this.coolTime=random(30)+10;
   }
   //void bounceBall()
   //{
