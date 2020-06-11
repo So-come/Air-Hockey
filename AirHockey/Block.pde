@@ -2,8 +2,9 @@ class Block
 {
   float X_Pos;
   float Y_Pos;
-  int radius=50;
+  int diameter=50;
   float coolTime;
+  int item;
   public float xDir=5,yDir=2;
   public Block()
   {
@@ -34,7 +35,7 @@ class Block
   //to calculate Collision
   public float getRadius()
   {
-    return this.radius;
+    return this.diameter/2;
   }
   public float get_X_Pos()
   {
@@ -52,11 +53,16 @@ class Block
   {
     return this.xDir;
   }
+  public int getItem()
+  {
+    return this.item;
+  }
   public void create_Block()
   {
-    this.X_Pos=random(1600-radius/2-7.5)+radius/2+7.5;
-    this.Y_Pos=random(800-radius/2-7.5)+radius/2+7.5;
+    this.X_Pos=random(1600-getRadius()-7.5)+getRadius()+7.5;
+    this.Y_Pos=random(800-getRadius()-7.5)+getRadius()+7.5;
     this.coolTime=random(30)+10;
+    this.item=(int)random(5);
   }
   //void bounceBall()
   //{

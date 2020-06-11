@@ -2,7 +2,7 @@ class Player1
 {
   int score=0;
   float X_Pos,Y_Pos;
-  public float radius=150;
+  public float diameter=150;
   int xDir = 5, yDir = 5;
   
   public Player1(int x,int y)
@@ -15,11 +15,11 @@ class Player1
   {
     fill(255,0,0);
     stroke(250,5,5);
-    circle(X_Pos,Y_Pos,radius);
+    circle(X_Pos,Y_Pos,diameter);
     fill(255);
-    circle(X_Pos,Y_Pos,radius/2);
+    circle(X_Pos,Y_Pos,getRadius());
     fill(120,0,0);
-    circle(X_Pos,Y_Pos,radius/4);
+    circle(X_Pos,Y_Pos,getRadius()/2);
   }
   //to move Player1
     void move(boolean up1, boolean down1, boolean left1, boolean right1) {
@@ -37,16 +37,16 @@ class Player1
     }
   }
   void Player1_limitation(){
-    if(X_Pos<radius/2+7.5 ) X_Pos=radius/2+8.5;
-    if(X_Pos>width-radius/2-7.5)X_Pos=width-radius/2-8.5;
-    if(Y_Pos<radius/2+7.5) Y_Pos=height-radius/2-8.5;
-    if(Y_Pos >height -radius/2-7.5) Y_Pos=radius/2+7.5;
+    if(X_Pos<getRadius()+7.5 ) X_Pos=getRadius()+8.5;
+    if(X_Pos>width-getRadius()-7.5)X_Pos=width-getRadius()-8.5;
+    if(Y_Pos<getRadius()+7.5) Y_Pos=height-getRadius()-8.5;
+    if(Y_Pos >height -getRadius()-7.5) Y_Pos=getRadius()+7.5;
   }
 
   //to calculate Collision
   public float getRadius()
   {
-    return this.radius;
+    return this.diameter/2;
   }
   public float get_X_Pos()
   {

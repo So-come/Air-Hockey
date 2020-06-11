@@ -2,7 +2,7 @@ class Field
 {
   public int X_Area,Y_Area,C_Area;
   int rect_X,rect_Y,rect_C;
-  float goal_radius=250;
+  float goal_diameter=250;
   
   public Field(int Window_Width,int Window_Height)
   {
@@ -28,11 +28,15 @@ class Field
     line(X_Area/2,5,X_Area/2,Y_Area-5);//maybe it's fixed
     //draw the gall
     noStroke();
-    circle(5,rect_Y/2,goal_radius);
-    circle(rect_X,rect_Y/2,goal_radius);   
+    circle(5,rect_Y/2,get_GR()*2);
+    circle(rect_X,rect_Y/2,get_GR()*2);   
   }
   public float get_GR()
   {
-    return this.goal_radius;
+    return this.goal_diameter/2;
+  }
+  public void set_GR(float change)
+  {
+    this.goal_diameter=change*2;
   }
 }
