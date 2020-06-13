@@ -19,11 +19,11 @@ class Rocket
     Y_Pos += yDir;
   }
   //when collision with Field bounce
-  void bounceBall()
-  {
-     if ((X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) && (Y_Pos > height/2 + 100 - radius/2 || Y_Pos < height/2 - (100 - radius/2))) xDir *= -1;
-    if (Y_Pos < radius/2+7.5 || Y_Pos > height - radius/2-7.5) yDir *= -1;
-  }
+  //void bounceBall()
+  //{
+  //   if ((X_Pos < radius/2+7.5 || X_Pos > width - radius/2-7.5) && (Y_Pos > height/2 + 100 - radius/2 || Y_Pos < height/2 - (100 - radius/2))) xDir *= -1;
+  //  if (Y_Pos < radius/2+7.5 || Y_Pos > height - radius/2-7.5) yDir *= -1;
+  //}
   //to calculate Collision
   public int getRadius()
   {
