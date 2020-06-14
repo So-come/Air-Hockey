@@ -22,7 +22,7 @@ void setup() {
   b1=new Block();
   b2=new Block();
   b3=new Block();
-  img=loadImage("img.png");
+  img=loadImage("img.jpg");
 }
 
 void draw() {
