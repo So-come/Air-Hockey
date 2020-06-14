@@ -78,6 +78,19 @@ void draw() {
     getItem(b2);
     getItem(b3);
     goal_origin();
+    if(gb==true)
+    {
+      stroke(255,111,111);
+      strokeWeight(5);
+      line(100,height/2-f.get_GR()+10,100,height/2+f.get_GR()-10);
+    }
+    
+    if(gb2==true)
+    {
+      stroke(111,255,111);
+      strokeWeight(5);
+      line(width-6,height/2-f.get_GR()+10,width-6,height/2+f.get_GR()-10);
+    }
   }
 }
 
@@ -293,12 +306,14 @@ void goal_origin()
     f.set_GR(125);
   }
 }
-
-void get_sheild(boolean gb)
-{
-  gb = true;
+void get_sheild()
+{ 
+  gb=true;
 }
-
+void get_sheild2()
+{
+  gb2=true;
+}
 void getItem(Block b)
 {
   if(b.get_X_Pos()<5||b.get_X_Pos()>width-5||b.get_Y_Pos()<5||b.get_Y_Pos()>height-5)
@@ -309,31 +324,31 @@ void getItem(Block b)
       switch(b.getItem())
       {
         case 0:
-        get_sheild(gb2);
+        get_sheild2();
         //fastRocket();
         break;
         
         case 1:
-        get_sheild(gb2);
+        get_sheild2();
         //slowRocket();
         break;
         
         case 2:
-        get_sheild(gb2);
+        get_sheild2();
         //bigger_goal();
         break;
         
         case 3:
-        get_sheild(gb2);
+        get_sheild2();
         //smaller_goal();
         break;
         
         case 4:
-        get_sheild(gb2);
+        get_sheild2();
         break;
         
         case 5:
-        get_sheild(gb2);
+        get_sheild2();
         //smaller_goal();
         break;
   }
@@ -344,31 +359,31 @@ void getItem(Block b)
       switch(b.getItem())
       {
        case 0:
-        get_sheild(gb);
+        get_sheild();
         //fastRocket();
         break;
         
         case 1:
-        get_sheild(gb);
+        get_sheild();
         //slowRocket();
         break;
         
         case 2:
-        get_sheild(gb);
+        get_sheild();
         //bigger_goal();
         break;
         
         case 3:
-        get_sheild(gb);
+        get_sheild();
         //smaller_goal();
         break;
         
         case 4:
-        get_sheild(gb);
+        get_sheild();
         break;
         
         case 5:
-       get_sheild(gb);
+       get_sheild();
        //smaller_goal();
         break;
         
