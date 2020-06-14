@@ -236,6 +236,38 @@ void rocketOut(Rocket r)
     r.create();
   }
 }
+
+void fastRocket(){
+  if(r.xDir > 0){
+    r.xDir = 10;
+  }
+  if(r.xDir < 0){
+    r.xDir = -10;
+  }
+  if(r.yDir > 0){
+    r.yDir = 10;
+  }
+  if(r.yDir < 0){
+    r.yDir = -10;
+  }
+}
+
+void slowRocket(){
+  if(r.xDir < 0){
+    r.xDir = -1;
+  }
+  if(r.xDir > 0){
+    r.xDir = 1;
+  }
+  if(r.yDir < 0){
+    r.yDir = -1;
+  }
+  if(r.yDir > 0){
+    r.yDir = 1;
+  }
+}
+
+
 void getItem(Block b)
 {
   if(b.get_X_Pos()<5||b.get_X_Pos()>width-5||b.get_Y_Pos()<5||b.get_Y_Pos()>height-5)
@@ -246,10 +278,10 @@ void getItem(Block b)
       switch(b.getItem())
       {
         case 0:
-        
+        fastRocket();
         break;
         case 1:
-        
+        slowRocket();
         break;
         case 2:
         
@@ -258,7 +290,7 @@ void getItem(Block b)
         
         break;
         case 4:
-         
+        
         break;
         case 5:
         

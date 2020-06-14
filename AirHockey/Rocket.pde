@@ -49,5 +49,7 @@ class Rocket
   {
     X_Pos=width/2;
     Y_Pos=height/2;
+    xDir = -5;
+    yDir = -2;
   }
 }
