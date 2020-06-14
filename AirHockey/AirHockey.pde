@@ -8,6 +8,8 @@ Block b2;
 Block b3;
 int start=0;
 PImage img;
+boolean gb = false;
+boolean gb2 = false;
 
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
 float coolTime;
@@ -292,6 +294,11 @@ void goal_origin()
   }
 }
 
+void get_sheild(boolean gb)
+{
+  gb = true;
+}
+
 void getItem(Block b)
 {
   if(b.get_X_Pos()<5||b.get_X_Pos()>width-5||b.get_Y_Pos()<5||b.get_Y_Pos()>height-5)
@@ -302,22 +309,32 @@ void getItem(Block b)
       switch(b.getItem())
       {
         case 0:
-        fastRocket();
+        get_sheild(gb2);
+        //fastRocket();
         break;
+        
         case 1:
-        slowRocket();
+        get_sheild(gb2);
+        //slowRocket();
         break;
+        
         case 2:
-        bigger_goal();
+        get_sheild(gb2);
+        //bigger_goal();
         break;
+        
         case 3:
-        smaller_goal();
+        get_sheild(gb2);
+        //smaller_goal();
         break;
+        
         case 4:
-        bigger_goal();
+        get_sheild(gb2);
         break;
+        
         case 5:
-        smaller_goal();
+        get_sheild(gb2);
+        //smaller_goal();
         break;
   }
     }
@@ -327,23 +344,35 @@ void getItem(Block b)
       switch(b.getItem())
       {
        case 0:
-        fastRocket();
+        get_sheild(gb);
+        //fastRocket();
         break;
+        
         case 1:
-        slowRocket();
+        get_sheild(gb);
+        //slowRocket();
         break;
+        
         case 2:
-        bigger_goal();
+        get_sheild(gb);
+        //bigger_goal();
         break;
+        
         case 3:
-        smaller_goal();
+        get_sheild(gb);
+        //smaller_goal();
         break;
+        
         case 4:
-        bigger_goal();
+        get_sheild(gb);
         break;
+        
         case 5:
-        smaller_goal();
+       get_sheild(gb);
+       //smaller_goal();
         break;
+        
+
       }
     }
     b.create_Block();
@@ -353,13 +382,27 @@ void R_bounceBall(Rocket r)
 {
   if ((r.get_X_Pos() < r.getRadius()+7.5 || r.get_X_Pos() > width - r.getRadius()-7.5) && (r.get_Y_Pos() > height/2 + f.get_GR() - r.getRadius() || r.get_Y_Pos() < height/2 - (f.get_GR() - r.getRadius()))) r.xDir *= -1;
   else if (r.get_Y_Pos() < r.getRadius()+7.5 || r.get_Y_Pos() > height - r.getRadius()-7.5) r.yDir *= -1;
+  
+  else if (r.get_X_Pos() < r.getRadius()+7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb)
+    {
+    gb = false;
+  r.xDir *= -1;
+  }
+  else if (r.get_X_Pos() > width - r.getRadius()-7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb2)
+  {
+    gb2 = false;
+  r.xDir *= -1;
+  }
 }
 void B_bounceBall(Block b)
 {
   if ((b.get_X_Pos() < b.getRadius()+7.5 || b.get_X_Pos() > width - b.getRadius()-7.5) &&
   (b.get_Y_Pos() > height/2 + f.get_GR() - b.getRadius() || b.get_Y_Pos() < height/2 - (f.get_GR() - b.getRadius()))) b.xDir *= -1;
   else if (b.get_Y_Pos() < b.getRadius()+7.5 || b.get_Y_Pos() > height - b.getRadius()-7.5) b.yDir *= -1;
+
 }
+
+
 void mousePressed()
 {
   start=1;
