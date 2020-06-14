@@ -77,20 +77,23 @@ void draw() {
     getItem(b1);
     getItem(b2);
     getItem(b3);
-    goal_origin();
+    
+    
     if(gb==true)
     {
       stroke(255,111,111);
       strokeWeight(5);
-      line(100,height/2-f.get_GR()+10,100,height/2+f.get_GR()-10);
+      line(6,height/2-f.get_GR()+10,6,height/2+f.get_GR()-10);
     }
     
-    if(gb2==true)
+    else if(gb2==true)
     {
       stroke(111,255,111);
       strokeWeight(5);
       line(width-6,height/2-f.get_GR()+10,width-6,height/2+f.get_GR()-10);
     }
+    
+    goal_origin();
   }
 }
 
@@ -306,14 +309,17 @@ void goal_origin()
     f.set_GR(125);
   }
 }
+
 void get_sheild()
 { 
   gb=true;
 }
+
 void get_sheild2()
 {
   gb2=true;
 }
+
 void getItem(Block b)
 {
   if(b.get_X_Pos()<5||b.get_X_Pos()>width-5||b.get_Y_Pos()<5||b.get_Y_Pos()>height-5)
@@ -383,7 +389,7 @@ void getItem(Block b)
         break;
         
         case 5:
-       get_sheild();
+        get_sheild();
        //smaller_goal();
         break;
         
@@ -399,14 +405,14 @@ void R_bounceBall(Rocket r)
   else if (r.get_Y_Pos() < r.getRadius()+7.5 || r.get_Y_Pos() > height - r.getRadius()-7.5) r.yDir *= -1;
   
   else if (r.get_X_Pos() < r.getRadius()+7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb)
-    {
+   {
     gb = false;
-  r.xDir *= -1;
+    r.xDir *= -1;
   }
   else if (r.get_X_Pos() > width - r.getRadius()-7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb2)
   {
     gb2 = false;
-  r.xDir *= -1;
+    r.xDir *= -1;
   }
 }
 void B_bounceBall(Block b)
