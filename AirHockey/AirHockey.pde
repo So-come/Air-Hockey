@@ -10,7 +10,7 @@ int start=0;
 PImage img;
 
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
-
+float coolTime;
 void setup() {
   background(0);
   size (1600,800);
@@ -75,6 +75,7 @@ void draw() {
     getItem(b1);
     getItem(b2);
     getItem(b3);
+    goal_origin();
   }
 }
 
@@ -266,7 +267,30 @@ void slowRocket(){
     r.yDir = 1;
   }
 }
-
+void bigger_goal()
+{
+  f.set_GR(250);
+  coolTime=6.0;
+}
+void smaller_goal()
+{
+  f.set_GR(62);
+  coolTime=6.0;
+}
+void goal_origin()
+{
+  if(coolTime>0)
+  {
+    coolTime-=0.1;
+  }else if(coolTime<0)
+  {
+    coolTime=0.0;
+  }
+  else
+  {
+    f.set_GR(125);
+  }
+}
 
 void getItem(Block b)
 {
@@ -284,16 +308,16 @@ void getItem(Block b)
         slowRocket();
         break;
         case 2:
-        
+        bigger_goal();
         break;
         case 3:
-        
+        smaller_goal();
         break;
         case 4:
-        
+        bigger_goal();
         break;
         case 5:
-        
+        smaller_goal();
         break;
   }
     }
@@ -302,23 +326,23 @@ void getItem(Block b)
     {
       switch(b.getItem())
       {
-        case 0:
-        
+       case 0:
+        fastRocket();
         break;
         case 1:
-        
+        slowRocket();
         break;
         case 2:
-        
+        bigger_goal();
         break;
         case 3:
-        
+        smaller_goal();
         break;
         case 4:
-        
+        bigger_goal();
         break;
         case 5:
-        
+        smaller_goal();
         break;
       }
     }
