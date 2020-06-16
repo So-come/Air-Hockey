@@ -30,7 +30,7 @@ void draw() {
   
   if(start==0)
     is.draw_Screen();
-  else {
+  else if(start==1){
     p1.move(left1, right1, up1, down1);
     p2.move(left2, right2, up2, down2);
     crash_R_and_P1(r, p1);
@@ -90,6 +90,24 @@ void draw() {
     
     goal_origin();
   }
+  
+  if(p1.score == 1){
+    start=2;
+    background(0);
+    textSize (300);
+    text ("Red Win", 200, 450);
+    fill(255, 0, 0);
+  }
+  
+  if(p2.score == 1){
+    start=3;
+    background(0);
+    textSize (300);
+    text ("Green Win", 400, 300);
+    fill(0, 255, 0);
+  }
+  
+  
 }
 
 void keyPressed() {
@@ -283,12 +301,12 @@ void slowRocket(){
 void bigger_goal()
 {
   f.set_GR(250);
-  coolTime=6.0;
+  coolTime=10.0;
 }
 void smaller_goal()
 {
   f.set_GR(62);
-  coolTime=6.0;
+  coolTime=10.0;
 }
 void goal_origin()
 {
@@ -320,24 +338,20 @@ void getItem(Block b)
     {
       switch(b.getItem())
       {
-        case 0:
-        get_sheild();
-        //fastRocket();
+        case 0:      
+        fastRocket();
         break;
         
-        case 1:
-        get_sheild();
-        //slowRocket();
+        case 1:        
+        slowRocket();
         break;
         
-        case 2:
-        get_sheild();
-        //bigger_goal();
+        case 2:     
+        bigger_goal();
         break;
         
         case 3:
-        get_sheild();
-        //smaller_goal();
+        smaller_goal();
         break;
         
         case 4:
@@ -345,8 +359,7 @@ void getItem(Block b)
         break;
         
         case 5:
-        get_sheild();
-        //smaller_goal();
+        fastRocket();
         break;
   }
     }
@@ -355,24 +368,20 @@ void getItem(Block b)
     {
       switch(b.getItem())
       {
-       case 0:
-        get_sheild();
-        //fastRocket();
+        case 0:      
+        fastRocket();
         break;
         
-        case 1:
-        get_sheild();
-        //slowRocket();
+        case 1:        
+        slowRocket();
         break;
         
-        case 2:
-        get_sheild();
-        //bigger_goal();
+        case 2:     
+        bigger_goal();
         break;
         
         case 3:
-        get_sheild();
-        //smaller_goal();
+        smaller_goal();
         break;
         
         case 4:
@@ -380,11 +389,8 @@ void getItem(Block b)
         break;
         
         case 5:
-        get_sheild();
-       //smaller_goal();
+        fastRocket();
         break;
-        
-
       }
     }
     b.create_Block();
@@ -403,9 +409,9 @@ void R_bounceBall(Rocket r)
 }
 void B_bounceBall(Block b)
 {
-  if ((b.get_X_Pos() < b.getRadius()+7.5 || b.get_X_Pos() > width - b.getRadius()-7.5) &&
+  if ((b.get_X_Pos() < b.getRadius()/2+7.5 || b.get_X_Pos() > width - 2*b.getRadius()-7.5) &&
   (b.get_Y_Pos() > height/2 + f.get_GR() - b.getRadius() || b.get_Y_Pos() < height/2 - (f.get_GR() - b.getRadius()))) b.xDir *= -1;
-  else if (b.get_Y_Pos() < b.getRadius()+7.5 || b.get_Y_Pos() > height - b.getRadius()-7.5) b.yDir *= -1;
+  else if (b.get_Y_Pos() < b.getRadius()/2+7.5 || b.get_Y_Pos() > height - 2*b.getRadius()-7.5) b.yDir *= -1;
 
 }
 

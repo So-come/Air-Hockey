@@ -59,8 +59,8 @@ class Block
   }
   public void create_Block()
   {
-    this.X_Pos=random(1600-getRadius()-7.5)+getRadius()+7.5;
-    this.Y_Pos=random(800-getRadius()-7.5)+getRadius()+7.5;
+    this.X_Pos=random(1600-getRadius()*4-7.5)+getRadius()*2+7.5;
+    this.Y_Pos=random(800-getRadius()*4-7.5)+getRadius()*2+7.5;
     this.coolTime=random(30)+10;
     this.item=(int)random(5);
   }
