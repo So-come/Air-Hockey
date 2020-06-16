@@ -9,7 +9,6 @@ Block b3;
 int start=0;
 PImage img;
 boolean gb = false;
-boolean gb2 = false;
 
 boolean up1, down1, left1, right1, up2, down2, left2, right2;
 float coolTime;
@@ -83,14 +82,10 @@ void draw() {
     {
       stroke(255,111,111);
       strokeWeight(5);
-      line(6,height/2-f.get_GR()+10,6,height/2+f.get_GR()-10);
-    }
-    
-    else if(gb2==true)
-    {
+      line(6,height/2-f.get_GR()+10,6,height/2+f.get_GR()-20);
       stroke(111,255,111);
       strokeWeight(5);
-      line(width-6,height/2-f.get_GR()+10,width-6,height/2+f.get_GR()-10);
+      line(width-6,height/2-f.get_GR()+10,width-6,height/2+f.get_GR()-20);
     }
     
     goal_origin();
@@ -315,10 +310,6 @@ void get_sheild()
   gb=true;
 }
 
-void get_sheild2()
-{
-  gb2=true;
-}
 
 void getItem(Block b)
 {
@@ -330,31 +321,31 @@ void getItem(Block b)
       switch(b.getItem())
       {
         case 0:
-        get_sheild2();
+        get_sheild();
         //fastRocket();
         break;
         
         case 1:
-        get_sheild2();
+        get_sheild();
         //slowRocket();
         break;
         
         case 2:
-        get_sheild2();
+        get_sheild();
         //bigger_goal();
         break;
         
         case 3:
-        get_sheild2();
+        get_sheild();
         //smaller_goal();
         break;
         
         case 4:
-        get_sheild2();
+        get_sheild();
         break;
         
         case 5:
-        get_sheild2();
+        get_sheild();
         //smaller_goal();
         break;
   }
@@ -404,14 +395,9 @@ void R_bounceBall(Rocket r)
   if ((r.get_X_Pos() < r.getRadius()+7.5 || r.get_X_Pos() > width - r.getRadius()-7.5) && (r.get_Y_Pos() > height/2 + f.get_GR() - r.getRadius() || r.get_Y_Pos() < height/2 - (f.get_GR() - r.getRadius()))) r.xDir *= -1;
   else if (r.get_Y_Pos() < r.getRadius()+7.5 || r.get_Y_Pos() > height - r.getRadius()-7.5) r.yDir *= -1;
   
-  else if (r.get_X_Pos() < r.getRadius()+7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb)
+  else if ((r.get_X_Pos() < r.getRadius()+7.5 ||r.get_X_Pos() > width - r.getRadius()-7.5)&& r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb)
    {
     gb = false;
-    r.xDir *= -1;
-   }
-  else if (r.get_X_Pos() > width - r.getRadius()-7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb2)
-   {
-    gb2 = false;
     r.xDir *= -1;
    }
 }
