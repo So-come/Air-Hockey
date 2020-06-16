@@ -408,12 +408,12 @@ void R_bounceBall(Rocket r)
    {
     gb = false;
     r.xDir *= -1;
-  }
+   }
   else if (r.get_X_Pos() > width - r.getRadius()-7.5 && r.get_Y_Pos() < height/2 + f.get_GR() - r.getRadius() && r.get_Y_Pos() > height/2 - (f.get_GR() - r.getRadius()) && gb2)
-  {
+   {
     gb2 = false;
     r.xDir *= -1;
-  }
+   }
 }
 void B_bounceBall(Block b)
 {
