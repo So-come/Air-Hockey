@@ -13,10 +13,12 @@ class Initial_Screen
     line(380, 210, 1250, 210);
   
     textSize(45);
-    text("Player 1 (Red) : w, a, s, d keys", 500, 380);
-    text("Player 2 (Green) : Arrow keys", 500, 480);
+    text("Player 1 (Red) : w, a, s, d keys", 500, 350);
+    text("Player 2 (Green) : Arrow keys", 500, 450);
+    text("Make own goal to use the items!", 465, 550);
     textSize(100);
     text("Click to Start!!!", 460, 700);
+    
 
   }
 }

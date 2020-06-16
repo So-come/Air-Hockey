@@ -91,7 +91,7 @@ void draw() {
     goal_origin();
   }
   
-  if(p1.score == 1){
+  if(p1.score == 5){
     start=2;
     background(0);
     textSize (300);
@@ -99,11 +99,11 @@ void draw() {
     fill(255, 0, 0);
   }
   
-  if(p2.score == 1){
+  if(p2.score == 5){
     start=3;
     background(0);
-    textSize (300);
-    text ("Green Win", 400, 300);
+    textSize (260);
+    text ("Green Win", 170, 450);
     fill(0, 255, 0);
   }
   
