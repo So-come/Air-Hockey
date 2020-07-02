@@ -312,7 +312,7 @@ void goal_origin()
 {
   if(coolTime>0)
   {
-    coolTime-=0.1;
+    coolTime-=0.01;
   }else if(coolTime<0)
   {
     coolTime=0.0;
